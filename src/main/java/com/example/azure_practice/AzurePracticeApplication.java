@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 @SpringBootApplication
 @RestController
@@ -32,8 +35,9 @@ public class AzurePracticeApplication {
         return request.getHeader("User-Agent");
     }
 
-    @GetMapping("/")
-    public String databaseTest(){
-        return "SELECT 1";
+    @GetMapping("/db")
+    public PreparedStatement databaseTest() throws SQLException {
+        Connection connection = dataSource.getConnection();
+        return connection.prepareStatement("SELECT_1");
     }
 }
