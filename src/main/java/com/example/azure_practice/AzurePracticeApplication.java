@@ -23,7 +23,7 @@ public class AzurePracticeApplication {
     }
 
     @GetMapping("/user-agent")
-    public String userAgent(HttpServletRequest request) {
-        return request.getHeader("User-Agent");
+    public String userAgent() {
+        return "User agent paaaaage";
     }
 }
