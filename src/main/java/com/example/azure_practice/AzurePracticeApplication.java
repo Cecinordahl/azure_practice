@@ -17,6 +17,6 @@ public class AzurePracticeApplication {
 
     @GetMapping("/")
     public String helloWorld(@RequestParam(defaultValue = "Cloud") String name) {
-        return "Hello " + name;
+        return "Hello there " + name;
     }
 }
